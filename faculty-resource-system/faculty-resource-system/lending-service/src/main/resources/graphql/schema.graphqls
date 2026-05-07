@@ -1,0 +1,29 @@
+type Query {
+    getIssuedBooksByUser(userId: ID!): [Issue]
+    getIssueHistory: [Issue]
+    getDueDates: [Issue]
+}
+
+type Mutation {
+    issueBook(userId: ID!, bookId: ID!): Issue
+    returnBook(issueId: ID!): Issue
+    renewBook(issueId: ID!): Issue
+    bulkIssueBooks(userId: ID!, bookIds: [ID!]!): [Issue]
+}
+
+type Issue {
+    id: ID
+    userId: ID
+    bookId: ID
+    state: IssueState
+    issuedAt: String
+    dueDate: String
+    returnedAt: String
+}
+
+enum IssueState {
+    REQUESTED
+    ISSUED
+    RETURNED
+    OVERDUE
+}

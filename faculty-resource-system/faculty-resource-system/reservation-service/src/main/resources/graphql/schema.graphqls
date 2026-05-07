@@ -1,0 +1,19 @@
+type Query {
+    getReservationQueue(bookId: ID!): [Reservation]
+    getUserReservations(userId: ID!): [Reservation]
+}
+
+type Mutation {
+    reserveBook(userId: ID!, bookId: ID!): Reservation
+    cancelReservation(reservationId: ID!): Boolean
+    allocateReservedBook(bookId: ID!): Reservation
+}
+
+type Reservation {
+    id: ID
+    userId: ID
+    bookId: ID
+    position: Int
+    reservedAt: String
+    expiryAt: String
+}

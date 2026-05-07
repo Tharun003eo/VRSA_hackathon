@@ -1,0 +1,36 @@
+type Query {
+    getUserById(id: ID!): User
+    getFacultyList: [User]
+    getStudentList: [User]
+}
+
+type Mutation {
+    registerUser(input: UserInput!): User
+    updateUserProfile(id: ID!, input: UserInput!): User
+    assignRole(id: ID!, role: String!): User
+    linkFacultyToDepartment(id: ID!, department: String!): User
+}
+
+type User {
+    id: ID
+    name: String
+    email: String
+    role: Role
+    department: String
+    createdAt: String
+    updatedAt: String
+}
+
+input UserInput {
+    name: String!
+    email: String!
+    role: String!
+    department: String
+}
+
+enum Role {
+    STUDENT
+    FACULTY
+    LIBRARIAN
+    ADMIN
+}

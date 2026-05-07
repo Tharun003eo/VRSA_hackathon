@@ -1,0 +1,47 @@
+# Fetch a book by ID
+type Query {
+    getBookById(id: ID!): Book
+    searchBooks(keyword: String!): [Book]
+    getBooksByFaculty(authorId: String!): [Book]
+    getBookVersions(isbn: String!): [Book]
+}
+
+type Mutation {
+    createBook(input: BookInput!): Book
+    updateBook(id: ID!, input: BookInput!): Book
+    deleteBook(id: ID!): Boolean
+
+    publishBook(id: ID!): Book
+    archiveBook(id: ID!): Book
+    versionBook(id: ID!, input: BookInput!): Book
+}
+
+# Book entity representation
+type Book {
+    id: ID
+    isbn: String
+    title: String
+    authorId: String
+    version: String
+    state: BookState
+    description: String
+    createdAt: String
+    updatedAt: String
+}
+
+# used for create/update
+input BookInput {
+    isbn: String!
+    title: String!
+    authorId: String!
+    version: String!
+    description: String
+}
+
+# matches your enum
+enum BookState {
+    DRAFT
+    REVIEW
+    PUBLISHED
+    ARCHIVED
+}

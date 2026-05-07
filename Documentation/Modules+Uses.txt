@@ -1,0 +1,141 @@
+📦 common
+
+Purpose: Shared layer
+
+Includes:
+
+DTOs (Java Records)
+Enums
+Sealed classes (BookState, IssueState)
+Utility classes
+Constants
+
+👉 No database, no controllers
+------------------------------------------
+📦 auth (Later Phase)
+
+Purpose: Security layer
+
+Includes:
+
+OAuth2 + JWT config
+Token validation
+Role-based access
+
+👉 Will integrate with api-gateway
+------------------------------------------
+📦 user-service (Module 2)
+
+Purpose: User domain
+
+Handles:
+
+Faculty & Student registration
+Role assignment
+Department mapping
+
+Core concepts:
+
+User entity
+Role management
+Academic hierarchy
+------------------------------------------
+📦 book-service (Module 1)
+
+Purpose: Book lifecycle
+
+Handles:
+
+Create / update / publish books
+Versioning
+Faculty ownership
+
+Core concepts:
+
+Book entity
+Book versions
+Book state machine
+------------------------------------------
+📦 course-service (Module 3)
+
+Purpose: Course-material mapping
+
+Handles:
+
+Assign books to courses
+Manage mandatory/optional materials
+
+Core concepts:
+
+Course entity
+CourseBook mapping
+------------------------------------------
+📦 lending-service (Module 4)
+
+Purpose: Book issuing system
+
+Handles:
+
+Issue / return / renew
+Bulk issuance
+
+Core concepts:
+
+Issue entity
+Issue lifecycle (sealed states)
+Idempotency
+------------------------------------------
+📦 reservation-service (Module 5)
+
+Purpose: Queue-based reservations
+
+Handles:
+
+Reserve books
+FIFO allocation
+
+Core concepts:
+
+Reservation queue
+Expiry logic
+------------------------------------------
+📦 workflow-service (Module 8)
+
+Purpose: Approval system
+
+Handles:
+
+Book review workflow
+Approvals / rejection
+
+Core concepts:
+
+Review entity
+Multi-level approvals
+------------------------------------------
+📦 analytics-service (Module 12)
+
+Purpose: Reporting & insights
+
+Handles:
+
+Usage analytics
+Aggregations
+Reports
+
+Core concepts:
+
+SQL aggregations
+Performance metrics
+------------------------------------------
+📦 api-gateway ⭐ (VERY IMPORTANT)
+
+Purpose: Entry point of system
+
+Handles:
+
+GraphQL APIs (Queries + Mutations + Subscriptions)
+Aggregates all services
+Security enforcement (later)
+
+👉 This is what Postman / frontend will hit

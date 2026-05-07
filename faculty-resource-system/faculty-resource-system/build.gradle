@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.virtusa.faculty'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+subprojects {
+
+	apply plugin: 'java'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}

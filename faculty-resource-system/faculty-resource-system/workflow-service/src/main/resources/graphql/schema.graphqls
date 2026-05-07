@@ -1,0 +1,27 @@
+type Query {
+    getReviewStatus(reviewId: ID!): Review
+    getReviewHistory(bookId: ID!): [Review]
+}
+
+type Mutation {
+    submitBookForReview(bookId: ID!, reviewerId: ID!): Review
+    approveBook(reviewId: ID!): Review
+    rejectBook(reviewId: ID!, comments: String!): Review
+    requestChanges(reviewId: ID!, comments: String!): Review
+}
+
+type Review {
+    id: ID
+    bookId: ID
+    reviewerId: ID
+    status: ReviewStatus
+    comments: String
+    reviewedAt: String
+}
+
+enum ReviewStatus {
+    PENDING
+    APPROVED
+    REJECTED
+    CHANGES_REQUESTED
+}

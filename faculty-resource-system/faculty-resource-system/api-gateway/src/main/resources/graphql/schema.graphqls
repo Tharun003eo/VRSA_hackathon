@@ -1,0 +1,209 @@
+# =======================
+# QUERY
+# =======================
+type Query {
+
+    # Book
+    getBookById(id: ID!): Book
+    searchBooks(keyword: String!): [Book]
+    getBooksByFaculty(authorId: String!): [Book]
+    getBookVersions(isbn: String!): [Book]
+
+    # User
+    getUserById(id: ID!): User
+    getFacultyList: [User]
+    getStudentList: [User]
+
+    # Course
+    getCourseMaterials(courseId: ID!): [CourseMaterial]
+    getBooksByCourse(courseId: ID!): [CourseMaterial]
+
+    # Lending
+    getIssuedBooksByUser(userId: ID!): [Issue]
+    getIssueHistory: [Issue]
+    getDueDates: [Issue]
+
+    # Reservation
+    getReservationQueue(bookId: ID!): [Reservation]
+    getUserReservations(userId: ID!): [Reservation]
+
+    # Workflow
+    getReviewStatus(reviewId: ID!): Review
+    getReviewHistory(bookId: ID!): [Review]
+}
+
+# =======================
+# MUTATION
+# =======================
+type Mutation {
+
+    # Book
+    createBook(input: BookInput!): Book
+    updateBook(id: ID!, input: BookInput!): Book
+    deleteBook(id: ID!): Boolean
+    publishBook(id: ID!): Book
+    archiveBook(id: ID!): Book
+    versionBook(id: ID!, input: BookInput!): Book
+
+    # User
+    registerUser(input: UserInput!): User
+    updateUserProfile(id: ID!, input: UserInput!): User
+    assignRole(id: ID!, role: String!): User
+    linkFacultyToDepartment(id: ID!, department: String!): User
+
+    # Course
+    createCourse(input: CourseInput!): Course
+    assignBookToCourse(courseId: ID!, bookId: ID!, mandatory: Boolean!, version: String!): CourseMaterial
+    updateCourseMaterial(materialId: ID!, mandatory: Boolean!, version: String!): CourseMaterial
+    removeBookFromCourse(materialId: ID!): Boolean
+
+    # Lending
+    issueBook(userId: ID!, bookId: ID!): Issue
+    returnBook(issueId: ID!): Issue
+    renewBook(issueId: ID!): Issue
+    bulkIssueBooks(userId: ID!, bookIds: [ID!]!): [Issue]
+
+    # Reservation
+    reserveBook(userId: ID!, bookId: ID!): Reservation
+    cancelReservation(reservationId: ID!): Boolean
+    allocateReservedBook(bookId: ID!): Reservation
+
+    # Workflow
+    submitBookForReview(bookId: ID!, reviewerId: ID!): Review
+    approveBook(reviewId: ID!): Review
+    rejectBook(reviewId: ID!, comments: String!): Review
+    requestChanges(reviewId: ID!, comments: String!): Review
+
+    # Security
+    login(email: String!, password: String!): String
+}
+
+# =======================
+# TYPES
+# =======================
+
+type Book {
+    id: ID
+    isbn: String
+    title: String
+    authorId: String
+    version: String
+    state: BookState
+    description: String
+    createdAt: String
+    updatedAt: String
+}
+
+type User {
+    id: ID
+    name: String
+    email: String
+    role: Role
+    department: String
+    createdAt: String
+    updatedAt: String
+}
+
+type Course {
+    id: ID
+    courseName: String
+    courseCode: String
+    department: String
+    createdAt: String
+    updatedAt: String
+}
+
+type CourseMaterial {
+    id: ID
+    courseId: ID
+    bookId: ID
+    mandatory: Boolean
+    bookVersion: String
+    assignedAt: String
+}
+
+type Issue {
+    id: ID
+    userId: ID
+    bookId: ID
+    state: IssueState
+    issuedAt: String
+    dueDate: String
+    returnedAt: String
+}
+
+type Reservation {
+    id: ID
+    userId: ID
+    bookId: ID
+    position: Int
+    reservedAt: String
+    expiryAt: String
+}
+
+type Review {
+    id: ID
+    bookId: ID
+    reviewerId: ID
+    status: ReviewStatus
+    comments: String
+    reviewedAt: String
+}
+
+# =======================
+# INPUTS
+# =======================
+
+input BookInput {
+    isbn: String!
+    title: String!
+    authorId: String!
+    version: String!
+    description: String
+}
+
+input UserInput {
+    name: String!
+    email: String!
+    role: String!
+    password: String!
+    department: String
+}
+
+input CourseInput {
+    courseName: String!
+    courseCode: String!
+    department: String
+}
+
+# =======================
+# ENUMS
+# =======================
+
+enum BookState {
+    DRAFT
+    REVIEW
+    PUBLISHED
+    ARCHIVED
+}
+
+enum Role {
+    STUDENT
+    FACULTY
+    LIBRARIAN
+    ADMIN
+}
+
+enum IssueState {
+    REQUESTED
+    ISSUED
+    RETURNED
+    OVERDUE
+}
+
+enum ReviewStatus {
+    PENDING
+    APPROVED
+    REJECTED
+    CHANGES_REQUESTED
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system" />
+        <option name="gradleJvm" value="21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/analytics-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/api-gateway" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/auth" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/book-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/common" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/course-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/lending-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/reservation-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/user-service" />
+            <option value="$PROJECT_DIR$/faculty-resource-system/faculty-resource-system/workflow-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

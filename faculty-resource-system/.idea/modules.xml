@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/faculty-resource-system.api-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/faculty-resource-system.api-gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/book-service/faculty-resource-system.book-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/book-service/faculty-resource-system.book-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/course-service/faculty-resource-system.course-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/course-service/faculty-resource-system.course-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lending-service/faculty-resource-system.lending-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lending-service/faculty-resource-system.lending-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service/faculty-resource-system.reservation-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service/faculty-resource-system.reservation-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/faculty-resource-system.user-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/faculty-resource-system.user-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/workflow-service/faculty-resource-system.workflow-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/workflow-service/faculty-resource-system.workflow-service.main.iml" />
+    </modules>
+  </component>
+</project>

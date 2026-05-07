@@ -1,0 +1,12 @@
+rootProject.name = 'faculty-resource-system'
+
+include 'common'
+include 'auth'
+include 'user-service'
+include 'book-service'
+include 'course-service'
+include 'lending-service'
+include 'reservation-service'
+include 'workflow-service'
+include 'analytics-service'
+include 'api-gateway'

@@ -1,0 +1,35 @@
+type Query {
+    getCourseMaterials(courseId: ID!): [CourseMaterial]
+    getBooksByCourse(courseId: ID!): [CourseMaterial]
+}
+
+type Mutation {
+    createCourse(input: CourseInput!): Course
+    assignBookToCourse(courseId: ID!, bookId: ID!, mandatory: Boolean!, version: String!): CourseMaterial
+    updateCourseMaterial(materialId: ID!, mandatory: Boolean!, version: String!): CourseMaterial
+    removeBookFromCourse(materialId: ID!): Boolean
+}
+
+type Course {
+    id: ID
+    courseName: String
+    courseCode: String
+    department: String
+    createdAt: String
+    updatedAt: String
+}
+
+type CourseMaterial {
+    id: ID
+    courseId: ID
+    bookId: ID
+    mandatory: Boolean
+    bookVersion: String
+    assignedAt: String
+}
+
+input CourseInput {
+    courseName: String!
+    courseCode: String!
+    department: String
+}

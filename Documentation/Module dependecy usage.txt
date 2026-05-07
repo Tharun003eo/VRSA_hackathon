@@ -1,0 +1,64 @@
+common
+- No dependencies (pure shared models: records, enums, sealed classes)
+
+book-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+user-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+course-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+lending-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+reservation-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+workflow-service
+- Spring Boot Starter
+- Spring Data JPA
+- Spring GraphQL
+- Validation
+- Lombok
+- MySQL Driver
+
+analytics-service
+- Spring Boot Starter
+- Spring Data JPA
+- MySQL Driver
+
+api-gateway
+- Spring Boot Starter
+- Spring GraphQL
+
+auth (later phase)
+- Spring Security
+- OAuth2 Resource Server
+- JWT
